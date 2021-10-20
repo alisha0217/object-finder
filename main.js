@@ -1,6 +1,7 @@
 video="";
 Status="";
 objects=[];
+object_name = "car"
 
 function preload(){
    video = createVideo("video.mp4");
@@ -28,9 +29,9 @@ function draw(){
             if(objects[i].label == object_name ){
                 video.stop();
                 objectDetector.detect(gotResult);
-                document.getElementById("status").innerHTML = object_name + " found";
+                document.getElementById("status").innerHTML = object_name + " Found";
                 synth = window.speechSynthesis;
-                utterThis = new SpeechSynthesisUtterance(object_name + "found");
+                utterThis = new SpeechSynthesisUtterance(object_name + "Found");
                 synth.speak(utterThis);
             }
             else{
