@@ -25,6 +25,17 @@ function draw(){
             noFill();
             stroke("#ff0000");
             rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+            if(objects[i].label == object_name ){
+                video.stop();
+                objectDetector.detect(gotResult);
+                document.getElementById("status").innerHTML = object_name + " found";
+                synth = window.speechSynthesis;
+                utterThis = new SpeechSynthesisUtterance(object_name + "found");
+                synth.speak(utterThis);
+            }
+            else{
+                document.getElementById("status").innerHTML = "Not Found";
+            }
         }
     }
 }
